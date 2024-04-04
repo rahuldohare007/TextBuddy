@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+body.dark-mode {
+    background-color: #374151;
+}
+input[type="checkbox"].toggle {
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+input[type="checkbox"].toggle + label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+input[type="checkbox"].toggle + label::before {
+    content: '';
+    width: 4em;
+    height: 2em;
+    background-color: #FFF;
+    border: 1px solid #E5E8EC;
+    border-radius: 1em;
+}
+input[type="checkbox"].toggle:checked + label::before {
+    border-color: #E9ECF1;
+    background-color: #374151;
+}
+input[type="checkbox"].toggle + label::after {
+    content: '';
+    width: 2.5em;
+    height: 2.5em;
+    font-size: .5em;
+    position: absolute;
+    left: .8em;
+    background-color: #FFECCF;
+    border: .2em solid #FFBB52;
+    border-radius: 50%;
+    transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+input[type="checkbox"].toggle:checked + label::after {
+    left: 4.5em;
+    border-color: #FFF;
+    background-color: transparent;
+
+}
+input[type="checkbox"].toggle + label > .toggle__sun, input[type="checkbox"].toggle + label > .toggle__moon {
+    position: absolute;
+    transform-origin: top center;
+	animation: swing 500ms ease forwards;
+}
+input[type="checkbox"].toggle + label > .toggle__sun {
+    display: block;
+    left: 1.8em;
+    color: #FFBB52;
+    font-size: 1.4em;
+}
+input[type="checkbox"].toggle + label > .toggle__moon {
+    display: none;
+}
+input[type="checkbox"].toggle:checked + label > .toggle__moon {
+    display: block;
+    color: #FFF;
+    left: 0.5em;
+    font-size: 1.6em;
+}
+input[type="checkbox"].toggle:checked + label > .toggle__sun {
+    display: none;
+}
+
+@keyframes swing{
+	0%{
+        transform: rotate(10deg);
+    }
+	50%{
+        transform: rotate(-15deg);
+    }
+	100%{
+        transform: rotate(10deg);
+    }
+}
