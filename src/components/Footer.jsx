@@ -7,7 +7,7 @@ export default function Footer() {
         <span className="text-sm text-gray-900 sm:text-center dark:text-gray-400">
           © 2024{" "}
           <a
-            href="https://cyborgcoding007.blogspot.com"
+            href="https://cyborgcoding.com"
             className="hover:underline"
           >
             CyborgCoding
@@ -16,7 +16,7 @@ export default function Footer() {
         </span>
         <span className="md:flex text-sm text-gray-900 sm:text-center dark:text-gray-400">
           Made with 🖤 by Rahul Dohare.
-          <a href="https://github.com/rahuldohare007">
+          <a href="https://github.com/rahuldohare007/TextBuddy">
             <img src={Logo} style={{ marginLeft: "5px" }} />
           </a>
         </span>
