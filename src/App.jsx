@@ -43,7 +43,8 @@
 
 // export default App;
 
-import MainTask from "./components/MainTask";
+import MainTask from "./components/MainTasks/MainTask";
+// import MainTask from "./components/MainTask";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useState } from "react";
