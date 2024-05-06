@@ -49,6 +49,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useState } from "react";
 import Alert from "./components/Alert";
+import About from "./components/About";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -63,7 +65,7 @@ function App() {
       type: type,
     });
     setTimeout(() => {
-      setAlert(null)
+      setAlert(null);
     }, 2000);
   };
   // Function to toggle dark mode
@@ -79,12 +81,24 @@ function App() {
 
   return (
     <>
-      <div className={isDarkMode ? "dark" : ""}>
+      {/* <div className={isDarkMode ? "dark" : ""}>
         <Navbar toggleDarkMode={toggleDarkMode} alert={alert} />
         <Alert alert={alert} />
         <MainTask showAlert={showAlert} />
         <Footer />
-      </div>
+      </div> */}
+
+      <Router>
+        <div className={isDarkMode ? "dark" : ""}>
+          <Navbar toggleDarkMode={toggleDarkMode} alert={alert} />
+          <Alert alert={alert} />
+          <Routes>
+            <Route path="/" element={<MainTask showAlert={showAlert} />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
     </>
   );
 }

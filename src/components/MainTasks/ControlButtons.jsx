@@ -607,9 +607,9 @@ const ControlButtons = ({
 
       {/* Modal for Find and Replace */}
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2 className="text-xl font-semibold mb-4">Find and Replace</h2>
+        <h2 className="text-xl font-semibold mb-4 dark:text-white">Find and Replace</h2>
         <div className="mb-4">
-          <label htmlFor="findInput" className="block mb-2">
+          <label htmlFor="findInput" className="block mb-2 dark:text-white">
             Find:
           </label>
           <input
@@ -621,7 +621,7 @@ const ControlButtons = ({
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="replaceInput" className="block mb-2">
+          <label htmlFor="replaceInput" className="block mb-2 dark:text-white">
             Replace with:
           </label>
           <input
