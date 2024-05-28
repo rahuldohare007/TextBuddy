@@ -143,15 +143,23 @@ function MainTask(props) {
   };
 
   const handleExtractTexts = () => {
-    const cleanText = text.replace(/https?:\/\/\S+|[^\w\s]|[\d]/g, "");
-    setText(cleanText);
-    props.showAlert("Texts Extracted", "success");
+    const extracText = text.replace(/https?:\/\/\S+|[^\w\s]|[\d]/g, "");
+    if (extracText) {
+      setText(extracText);
+      props.showAlert("Texts Extracted", "success");
+    } else {
+      props.showAlert("No text found in the input!", "warning");
+    }
   };
 
   const handleRemoveSpecialCharacters = () => {
-    const cleanText = text.replace(/[^\w\s]/g, "");
-    setText(cleanText);
-    props.showAlert("Special characters removed", "success");
+    const removeSepecialCharacter = text.replace(/[^\w\s]/g, "");
+    if (removeSepecialCharacter) {
+      setText(removeSepecialCharacter);
+      props.showAlert("Special characters removed", "success");
+    }else {
+      props.showAlert("No special character found in the input!", "warning");
+    }
   };
 
   // FIND AND REPLACE
@@ -206,7 +214,7 @@ function MainTask(props) {
 
   return (
     <>
-      <div className="px-20 pt-24 z-0 dark:bg-gray-700">
+      <div className="px-20 pt-8 dark:bg-gray-700">
         <label
           htmlFor="message"
           className="block mb-2 text-3xl font-medium text-gray-900 dark:text-white"
