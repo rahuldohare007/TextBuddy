@@ -9,6 +9,7 @@ function DownloadModal({ isOpen, onClose, text }) {
 
   const handleDownload = () => {
     let blob;
+    // !text ? "Please write something in textarea before downloading" : "";
 
     if (format === "pdf") {
       const doc = new jsPDF();

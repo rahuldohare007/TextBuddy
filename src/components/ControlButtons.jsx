@@ -260,7 +260,7 @@ const ControlButtons = ({
         {/* Download */}
         <button
           className="top-1/2 -translate-y-1/5 mr-1 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-flex items-center justify-center"
-          onClick={handleSpeak}
+          onClick={openDownloadModal}
         >
           <abbr title="Download">
             <svg
