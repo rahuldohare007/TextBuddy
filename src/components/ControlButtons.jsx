@@ -1,5 +1,6 @@
 import { useState } from "react";
 import FindandReplaceModal from "../modals/FindandReplaceModal";
+import DownloadModal from "../modals/DownloadModal";
 
 const ControlButtons = ({
   handleCopy,
@@ -26,6 +27,7 @@ const ControlButtons = ({
   const [findText, setFindText] = useState("");
   const [replaceText, setReplaceText] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -33,6 +35,14 @@ const ControlButtons = ({
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const openDownloadModal = () => {
+    setIsDownloadModalOpen(true);
+  };
+
+  const closeDownloadModal = () => {
+    setIsDownloadModalOpen(false);
   };
   return (
     <>
@@ -79,26 +89,6 @@ const ControlButtons = ({
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                d="M6.5 3.85c0-.47.392-.85.875-.85h5.25c.483 0 .875.38.875.85h1.75c.966 0 1.75.761 1.75 1.7V6h-1c-.728 0-1.732-.06-2.434.095a4.01 4.01 0 0 0-.88.307.91.91 0 0 0-.061-.002h-.875V4.7h-3.5v1.7h-.875a.863.863 0 0 0-.875.85c0 .47.392.85.875.85h3.36L9.077 9.871a4 4 0 0 0-.892 1.526C7.97 12.083 8 13.268 8 14v5c0 .729.195 1.412.535 2H4.75C3.784 21 3 20.239 3 19.3V5.55c0-.939.784-1.7 1.75-1.7H6.5Z"
-                clipRule="evenodd"
-              />
-              <path
-                fillRule="evenodd"
-                d="M14 8.048V12h-3.907a2 2 0 0 1 .446-.763l2.434-2.603A2 2 0 0 1 14 8.048ZM16 8v4a2 2 0 0 1-2 2h-4v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-3Z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -119,21 +109,6 @@ const ControlButtons = ({
           onClick={handleCopy}
         >
           <abbr title="Copy to clipboard!">
-            <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1h2a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2Zm6 1h-4v2H9a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2h-1V4Zm-6 8a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1 3a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z"
-                clipRule="evenodd"
-              />
-            </svg>
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
               aria-hidden="true"
@@ -166,21 +141,6 @@ const ControlButtons = ({
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12 5a7 7 0 0 0-7 7v1.17c.313-.11.65-.17 1-.17h2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H6a3 3 0 0 1-3-3v-6a9 9 0 0 1 18 0v6a3 3 0 0 1-3 3h-2a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h2c.35 0 .687.06 1 .17V12a7 7 0 0 0-7-7Z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -200,22 +160,6 @@ const ControlButtons = ({
           onClick={handleSpeak}
         >
           <abbr title="Speak">
-            <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5 8a1 1 0 0 1 1 1v3a4.006 4.006 0 0 0 4 4h4a4.006 4.006 0 0 0 4-4V9a1 1 0 1 1 2 0v3.001A6.006 6.006 0 0 1 14.001 18H13v2h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2H9.999A6.006 6.006 0 0 1 4 12.001V9a1 1 0 0 1 1-1Z"
-                clipRule="evenodd"
-              />
-              <path d="M7 6a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4V6Z" />
-            </svg>
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
               aria-hidden="true"
@@ -300,22 +244,6 @@ const ControlButtons = ({
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z" />
-              <path
-                fillRule="evenodd"
-                d="M21.707 21.707a1 1 0 0 1-1.414 0l-3.5-3.5a1 1 0 0 1 1.414-1.414l3.5 3.5a1 1 0 0 1 0 1.414Z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -335,26 +263,6 @@ const ControlButtons = ({
           onClick={handleSpeak}
         >
           <abbr title="Download">
-            <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                d="M13 11.15V4a1 1 0 1 0-2 0v7.15L8.78 8.374a1 1 0 1 0-1.56 1.25l4 5a1 1 0 0 0 1.56 0l4-5a1 1 0 1 0-1.56-1.25L13 11.15Z"
-                clipRule="evenodd"
-              />
-              <path
-                fillRule="evenodd"
-                d="M9.657 15.874 7.358 13H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2.358l-2.3 2.874a3 3 0 0 1-4.685 0ZM17 16a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2H17Z"
-                clipRule="evenodd"
-              />
-            </svg>
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
               aria-hidden="true"
@@ -587,15 +495,6 @@ const ControlButtons = ({
       </button>
 
       {/* Find and Replace */}
-      {/* <button
-        type="button"
-        className={`mb-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800
-          ${isTextEmpty && "cursor-not-allowed opacity-50"}`}
-        onClick={handleFindAndReplace}
-        disabled={isTextEmpty}
-      >
-        Find and Replace
-      </button> */}
       <button
         className={`mb-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800
           ${isTextEmpty && "cursor-not-allowed opacity-50"}`}
@@ -607,7 +506,9 @@ const ControlButtons = ({
 
       {/* Modal for Find and Replace */}
       <FindandReplaceModal isOpen={isModalOpen} onClose={closeModal}>
-        <h2 className="text-xl font-semibold mb-4 dark:text-white">Find and Replace</h2>
+        <h2 className="text-xl font-semibold mb-4 dark:text-white">
+          Find and Replace
+        </h2>
         <div className="mb-4">
           <label htmlFor="findInput" className="block mb-2 dark:text-white">
             Find:
@@ -673,6 +574,22 @@ const ControlButtons = ({
         Redo
       </button>
 
+      {/* Download */}
+      <button
+        className={`mb-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800
+          ${isTextEmpty && "cursor-not-allowed opacity-50"}`}
+        onClick={openDownloadModal}
+        disabled={isTextEmpty}
+      >
+        Download
+      </button>
+
+      {/* Modal for Find and Replace */}
+      <DownloadModal
+        isOpen={isDownloadModalOpen}
+        onClose={closeDownloadModal}
+        text={text}
+      />
     </>
   );
 };
