@@ -43,13 +43,13 @@
 
 // export default App;
 
-import MainTask from "./components/MainTasks/MainTask";
+import MainTask from "./components/MainTask/MainTask;
 // import MainTask from "./components/MainTask";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Footer from "./pages/Footer";
 import { useState } from "react";
 import Alert from "./components/Alert";
-import About from "./components/About";
+import About from "./pages/About";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
