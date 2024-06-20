@@ -1,55 +1,9 @@
-// // import MainTask from "./MainTask";
-// // import Navbar from "./Navbar";
-
-// // function App() {
-// //   return (
-// //     <>
-// //       <Navbar />
-// //       <MainTask/>
-// //     </>
-// //   );
-// // }
-
-// // export default App;
-
-// import MainTask from "./components/MainTask";
-// import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer"
-// import DarkMode from "./components/DarkMode";
-// import { useState } from "react";
-
-// function App() {
-//   const [isDarkMode, setIsDarkMode] = useState(
-//     localStorage.getItem("isDarkMode") === "true"
-//   );
-
-//   // Function to toggle dark mode
-//   const toggleDarkMode = () => {
-//     const newMode = !isDarkMode;
-//     setIsDarkMode(newMode);
-//     localStorage.setItem("isDarkMode", newMode);
-//   };
-//   return (
-//     <>
-//       <div className={isDarkMode ? "dark" : ""}>
-//         <Navbar />
-//         <DarkMode toggleDarkMode={toggleDarkMode}/>
-//         <MainTask style={{height:"auto"}}/>
-//         <Footer />
-//       </div>
-//     </>
-//   );
-// }
-
-// export default App;
-
-import MainTask from "./components/MainTask/MainTask;
-// import MainTask from "./components/MainTask";
-import Navbar from "./components/Navbar";
+import MainTask from "./components/MainTask";
+import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer";
-import { useState } from "react";
 import Alert from "./components/Alert";
 import About from "./pages/About";
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {

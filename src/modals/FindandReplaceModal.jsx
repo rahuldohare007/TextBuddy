@@ -1,4 +1,4 @@
-function Modal({ isOpen, onClose, children }) {
+function FindandReplaceModal({ isOpen, onClose, children }) {
     if (!isOpen) return null;
   
     return (
@@ -31,4 +31,4 @@ function Modal({ isOpen, onClose, children }) {
     );
   }
   
-  export default Modal;
+  export default FindandReplaceModal;

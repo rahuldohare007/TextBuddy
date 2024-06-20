@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import TextInput from "./MainTask/TextInput";
+import TextInput from "./TextInput";
 import ControlButtons from "./ControlButtons";
-import Summary from "./MainTask/Summary";
+import Summary from "./Summary";
 import Preview from "./Preview";
 
 function MainTask(props) {

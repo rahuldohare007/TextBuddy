@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "./Modals/FindandReplaceModal";
+import FindandReplaceModal from "../modals/FindandReplaceModal";
 
 const ControlButtons = ({
   handleCopy,
@@ -43,7 +43,7 @@ const ControlButtons = ({
           className="top-1/2 -translate-y-1/5 mr-1 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-flex items-center justify-center"
           onClick={() => {
             setText("");
-            props.showAlert("Text cleared!", "success!");
+            props.showAlert("Text cleared!", "success");
           }}
         >
           <abbr title="Clear Text">
@@ -385,7 +385,7 @@ const ControlButtons = ({
         }`}
         onClick={() => {
           setText("");
-          props.showAlert("Text cleared!", "success!");
+          props.showAlert("Text cleared!", "success");
         }}
         disabled={isTextEmpty}
       >
@@ -446,7 +446,7 @@ const ControlButtons = ({
         }`}
         onClick={() => {
           setText(text.split("").reverse().join(""));
-          props.showAlert("Text Reversed!", "success!");
+          props.showAlert("Text Reversed!", "success");
         }}
         disabled={isTextEmpty}
       >
@@ -463,7 +463,7 @@ const ControlButtons = ({
           setText(
             text.split(" ").reverse().join(" ").split("").reverse().join("")
           );
-          props.showAlert("Word Reversed!", "success!");
+          props.showAlert("Word Reversed!", "success");
         }}
         disabled={isTextEmpty}
       >
@@ -477,7 +477,7 @@ const ControlButtons = ({
           ${isTextEmpty && "cursor-not-allowed opacity-50"}`}
         onClick={() => {
           setText(text.split(/[ ]+/).join(" "));
-          props.showAlert("Extra Spaces Removed!", "success!");
+          props.showAlert("Extra Spaces Removed!", "success");
         }}
         disabled={isTextEmpty}
       >
@@ -502,7 +502,7 @@ const ControlButtons = ({
           ${isTextEmpty && "cursor-not-allowed opacity-50"}`}
         onClick={() => {
           setText(capitalizeFirstLetter(text));
-          props.showAlert("First letter of each word capitalized!", "success!");
+          props.showAlert("First letter of each word capitalized!", "success");
         }}
         disabled={isTextEmpty}
       >
@@ -606,7 +606,7 @@ const ControlButtons = ({
       </button>
 
       {/* Modal for Find and Replace */}
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <FindandReplaceModal isOpen={isModalOpen} onClose={closeModal}>
         <h2 className="text-xl font-semibold mb-4 dark:text-white">Find and Replace</h2>
         <div className="mb-4">
           <label htmlFor="findInput" className="block mb-2 dark:text-white">
@@ -649,7 +649,7 @@ const ControlButtons = ({
             Find and Replace
           </button>
         </div>
-      </Modal>
+      </FindandReplaceModal>
 
       {/* Undo */}
       <button
