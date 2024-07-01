@@ -9,7 +9,15 @@ function DownloadModal({ isOpen, onClose, text }) {
 
   const handleDownload = () => {
     let blob;
-    // !text ? "Please write something in textarea before downloading" : "";
+    if (!text) {
+      window.alert("Please write something in the textarea before downloading.");
+      return;
+    }
+
+    if (!fileName.trim()) {
+      window.alert("File name cannot be empty.");
+      return;
+    }
 
     if (format === "pdf") {
       const doc = new jsPDF();

@@ -157,7 +157,7 @@ function MainTask(props) {
     if (removeSepecialCharacter) {
       setText(removeSepecialCharacter);
       props.showAlert("Special characters removed", "success");
-    }else {
+    } else {
       props.showAlert("No special character found in the input!", "warning");
     }
   };
@@ -203,6 +203,14 @@ function MainTask(props) {
   };
 
   // Download
+  const handleDownload = () => {
+    if (!text) {
+      props.showAlert(
+        "Please insert some text in textarea to download it",
+        "warning"
+      );
+    }
+  };
 
   function capitalizeFirstLetter(string) {
     let words = string.split(" ");
@@ -247,6 +255,7 @@ function MainTask(props) {
           handleFindAndReplace={handleFindAndReplace}
           handleUndo={handleUndo}
           handleRedo={handleRedo}
+          handleDownload={handleDownload}
         />
         <Summary wordCount={wordCount} charCount={charCount} text={text} />
         <Preview text={text} isTextEmpty={isTextEmpty} />
