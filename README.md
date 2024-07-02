@@ -1,5 +1,5 @@
 # 📜TextBuddy
-TextBuddy is a text analyzer, word counter and converter made with React.
+TextBuddy is a comprehensive text analyser, word counter, and converter using ### React.
 
 #### TRY HERE: https://text-buddy-eta.vercel.app/
 
