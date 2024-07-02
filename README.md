@@ -1,5 +1,6 @@
 # 📜TextBuddy
-
+## TextBuddy
+is a text analyzer, word counter and converter made with React.
 Try Here: https://text-buddy-eta.vercel.app/
 
 ## 🔥 Features
@@ -19,7 +20,7 @@ Try Here: https://text-buddy-eta.vercel.app/
 🔤 Extract Texts.<br>
 ✖ Remove special characters.<br>
 🔄 Find and Replace words.<br>
-↪ Redo.<br>
-↩ Undo.<br>
+↪ Redo action.<br>
+↩ Undo action.<br>
 ⬇ Download.<br>
 🧮 Last but not the least, get the count of words and characters in your text.
